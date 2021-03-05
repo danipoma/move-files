@@ -135,8 +135,9 @@ fn main() {
         let path = entry.path();
         if path.is_file() {
             let filename = entry.file_name();
-            fs::rename(path, Path::new(&target_dir).join(filename))
-                .expect("Some file couldn't be moved");
+            fs::copy(&path, Path::new(&target_dir).join(filename))
+                .expect("Some file couldn't be copied");
+            fs::remove_file(&path).expect("Unable to delete file");
         }
     }
 }
