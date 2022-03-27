@@ -48,9 +48,6 @@ function Get-SubFolder($parentDir, $subPath)
 function Add-Dir($baseDir, $makeDir)
 {
     $fullPathDir = Join-Path -Path $baseDir -ChildPath $makeDir
-    Write-Host "'$baseDir'"
-    Write-Host "'$makeDir'"
-    Write-Host "'$fullPathDir'"
     if(! (Test-Path $baseDir))
     {
         throw "Cesta '$baseDir' neexistuje."
